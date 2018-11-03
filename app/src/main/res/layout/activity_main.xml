@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/titleWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            >
+
+        <EditText
+            android:id="@+id/title"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Name of Report"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/descriptionlWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/date"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp"
+                android:gravity="clip_horizontal"
+                android:hint="Date of Birth"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/BranchCodewrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/branch_code"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="clip_horizontal"
+                android:hint="Branch Code"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/BranchNamewrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/branch_name"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="clip_horizontal"
+                android:hint="Branch Name"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/BranchManagerWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/branch_manager"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="clip_horizontal"
+                android:hint="Branch Manager"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/ClusterHeadWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/cluster_head"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="clip_horizontal"
+                android:hint="Cluster Head"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="10dp"
+            android:text="Section A | Performance Measures"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Staffing"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000000"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/staff_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/staff_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/staff_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Kaafi Sifarish"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/sifarish_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/sifarish_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/sifarish_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Star Awards"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/star_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/star_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/star_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Late Sitting"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/Late_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/Late_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/Late_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Branch Hygiene &amp; Infra."
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/bhi_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/bhi_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/bhi_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Supervisory Feedback"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/supervisory_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/supervisory_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/supervisory_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="New Joinees Feedback"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/new_joinee_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/new_joinee_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/new_joinee_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Attrition"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/attrition_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/attrition_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/attrition_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Senior Leadership Feedback"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/slf_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/slf_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/slf_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Mandatory Leave"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/mand_leave_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/mand_leave_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/mand_leave_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="VBMS"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/vbms_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/vbms_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/vbms_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Training Coverage"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/training_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/training_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/training_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Performance Approval Clarity"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000000"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/pac_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/pac_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/pac_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Role Elevation"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000000"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/role_elevation_rating"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Rating"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/role_elevation_action_plan"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Action Plan"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <EditText
+                android:id="@+id/role_elevation_accountability"
+
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:gravity="clip_horizontal"
+                android:hint="Accountability"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:singleLine="true"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="10dp"
+            android:text="Section B | Critical Observations"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/employee_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/employee_feedback"
+
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="clip_horizontal"
+                android:hint="Employee Feedback and Concerns"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/disciplinewrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/discipline"
+
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="clip_horizontal"
+                android:hint="Overall Observations on disciplinary issues(if any)"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/otherwrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/other"
+
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="clip_horizontal"
+                android:hint="Any Other Observations"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:padding="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/submit"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:id="@+id/email"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>
