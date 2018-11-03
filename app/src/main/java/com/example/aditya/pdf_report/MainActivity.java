@@ -13,6 +13,8 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -21,6 +23,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.PdfReader;
@@ -37,20 +40,25 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.Set;
 import com.example.aditya.pdf_report.BuildConfig;
+import com.weiwangcn.betterspinner.library.BetterSpinner;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     PdfStamper stamper;
+    int flag = 0;
     PdfReader reader ;
     String[] ratings = { "1", "2","3", "4", "5" };
-    EditText dob,branchcode,branchmanager,branchname,clusterhead,staffaction,staffaccount,sifaarishaction,sifaarishaccount;
-    EditText staraction,staraccount,lateaction,lateaccount,bhiaction,bhiaccount,superaction,superaccount;
-    EditText newaction,newaccount,attritionaction,attritionaccount,slfaction,slfaccount,mandaccount,mandaction,vbmsaction,vbmsaccount,trainingaction,trainingaccount;
-    EditText pacaction,pacaccount,roleaction,roleaccount, reportname,employeefeed,discipline,other;
-    AutoCompleteTextView staffrate,sifaarishrate,starrate,laterate,bhirate,superrate,newrate,attritionrate,slfrate,mandarate,vbmsrate,trainingrate;
-    AutoCompleteTextView pacrate,rolerate;
-    ArrayList<AutoCompleteTextView> arrayList = new ArrayList<AutoCompleteTextView>();
+    String[] account = { "RSM HR", "Branch Manager", "Cluster Head", "Circle Head", "Line + HR", "HR Operations", "ER", "IT", "Admin", "Infra", "Marketing", "WBO", "TPP", "Retail Assets", "Business Assets" };
+    EditText dob,branchcode,branchmanager,branchname,clusterhead,staffaction,sifaarishaction;
+    EditText staraction,lateaction,bhiaction,superaction;
+    EditText newaction,attritionaction,slfaction,mandaction,vbmsaction,trainingaction;
+    EditText pacaction,roleaction, reportname,employeefeed,discipline,other;
+    BetterSpinner staffrate,sifaarishrate,starrate,laterate,bhirate,superrate,newrate,attritionrate,slfrate,mandarate,vbmsrate,trainingrate;
+    BetterSpinner pacrate,rolerate,vbmsaccount,trainingaccount,pacaccount,roleaccount,slfaccount;
+    BetterSpinner staffaccount,sifaarishaccount,staraccount,lateaccount,bhiaccount,superaccount,newaccount,attritionaccount,mandaccount;
+    ArrayList<BetterSpinner> arrayList = new ArrayList<BetterSpinner>();
     ArrayList<String> fieldnames = new ArrayList<String>();
+    ArrayList<BetterSpinner> accountablity = new ArrayList<BetterSpinner>();
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
 
     Calendar myCalendar = Calendar.getInstance();
@@ -66,14 +74,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         requestPermission();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.select_dialog_singlechoice, ratings);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, ratings);
+        ArrayAdapter<String> accountadapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, account
+        );
         initialiseviews();
+
+
+
         //Set the number of characters the user must type before the drop down list is shown
         for (int i=0;i<arrayList.size();i++) {
-            arrayList.get(i).setThreshold(1);
+
             //Set the adapter
             arrayList.get(i).setAdapter(adapter);
+        }
 
+        for (int i=0;i<accountablity.size();i++) {
+
+            //Set the adapter
+            accountablity.get(i).setAdapter(accountadapter);
         }
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -144,33 +162,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void initialiseviews()
     {
-        staffrate = (AutoCompleteTextView)findViewById(R.id.staff_rating);
+        staffrate = (BetterSpinner)findViewById(R.id.staff_rating);
         arrayList.add(staffrate);
-        sifaarishrate = (AutoCompleteTextView)findViewById(R.id.sifarish_rating);
+        sifaarishrate = (BetterSpinner)findViewById(R.id.sifarish_rating);
         arrayList.add(sifaarishrate);
-        starrate = (AutoCompleteTextView)findViewById(R.id.star_rating);
+        starrate = (BetterSpinner)findViewById(R.id.star_rating);
         arrayList.add(starrate);
-        laterate = (AutoCompleteTextView)findViewById(R.id.Late_rating);
+        laterate = (BetterSpinner)findViewById(R.id.Late_rating);
         arrayList.add(laterate);
-        bhirate = (AutoCompleteTextView)findViewById(R.id.bhi_rating);
+        bhirate = (BetterSpinner)findViewById(R.id.bhi_rating);
         arrayList.add(bhirate);
-        superrate = (AutoCompleteTextView)findViewById(R.id.supervisory_rating);
+        superrate = (BetterSpinner)findViewById(R.id.supervisory_rating);
         arrayList.add(superrate);
-        newrate = (AutoCompleteTextView)findViewById(R.id.new_joinee_rating);
+        newrate = (BetterSpinner)findViewById(R.id.new_joinee_rating);
         arrayList.add(newrate);
-        attritionrate = (AutoCompleteTextView)findViewById(R.id.attrition_rating);
+        attritionrate = (BetterSpinner)findViewById(R.id.attrition_rating);
         arrayList.add(attritionrate);
-        slfrate = (AutoCompleteTextView)findViewById(R.id.slf_rating);
+        slfrate = (BetterSpinner)findViewById(R.id.slf_rating);
         arrayList.add(slfrate);
-        mandarate = (AutoCompleteTextView)findViewById(R.id.mand_leave_rating);
+        mandarate = (BetterSpinner)findViewById(R.id.mand_leave_rating);
         arrayList.add(mandarate);
-        vbmsrate = (AutoCompleteTextView)findViewById(R.id.vbms_rating);
+        vbmsrate = (BetterSpinner)findViewById(R.id.vbms_rating);
         arrayList.add(vbmsrate);
-        trainingrate = (AutoCompleteTextView)findViewById(R.id.training_rating);
+        trainingrate = (BetterSpinner)findViewById(R.id.training_rating);
         arrayList.add(trainingrate);
-        pacrate = (AutoCompleteTextView)findViewById(R.id.pac_rating);
+        pacrate = (BetterSpinner)findViewById(R.id.pac_rating);
         arrayList.add(pacrate);
-        rolerate = (AutoCompleteTextView)findViewById(R.id.role_elevation_rating);
+        rolerate = (BetterSpinner)findViewById(R.id.role_elevation_rating);
         arrayList.add(rolerate);
 
         staffaction = (EditText)findViewById(R.id.staff_action_plan);
@@ -189,20 +207,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         roleaction = (EditText)findViewById(R.id.role_elevation_action_plan);
 
 
-        staffaccount = (EditText)findViewById(R.id.staff_accountability);
-        sifaarishaccount = (EditText)findViewById(R.id.sifarish_accountability);
-        staraccount = (EditText)findViewById(R.id.star_accountability);
-        lateaccount = (EditText)findViewById(R.id.Late_accountability);
-        bhiaccount = (EditText)findViewById(R.id.bhi_accountability);
-        superaccount = (EditText)findViewById(R.id.supervisory_accountability);
-        newaccount = (EditText)findViewById(R.id.new_joinee_accountability);
-        attritionaccount = (EditText)findViewById(R.id.attrition_accountability);
-        slfaccount = (EditText)findViewById(R.id.slf_accountability);
-        mandaccount = (EditText)findViewById(R.id.mand_leave_accountability);
-        vbmsaccount = (EditText)findViewById(R.id.vbms_accountability);
-        trainingaccount = (EditText)findViewById(R.id.training_accountability);
-        pacaccount = (EditText)findViewById(R.id.pac_accountability);
-        roleaccount = (EditText)findViewById(R.id.role_elevation_accountability);
+        staffaccount = (BetterSpinner)findViewById(R.id.staff_accountability);
+        accountablity.add(staffaccount);
+        sifaarishaccount = (BetterSpinner)findViewById(R.id.sifarish_accountability);
+        accountablity.add(sifaarishaccount);
+        staraccount = (BetterSpinner)findViewById(R.id.star_accountability);
+        accountablity.add(staraccount);
+        lateaccount = (BetterSpinner)findViewById(R.id.Late_accountability);
+        accountablity.add(lateaccount);
+        bhiaccount = (BetterSpinner)findViewById(R.id.bhi_accountability);
+        accountablity.add(bhiaccount);
+        superaccount = (BetterSpinner)findViewById(R.id.supervisory_accountability);
+        accountablity.add(superaccount);
+        newaccount = (BetterSpinner)findViewById(R.id.new_joinee_accountability);
+        accountablity.add(newaccount);
+        attritionaccount = (BetterSpinner)findViewById(R.id.attrition_accountability);
+        accountablity.add(attritionaccount);
+        slfaccount = (BetterSpinner)findViewById(R.id.slf_accountability);
+        accountablity.add(slfaccount);
+        mandaccount = (BetterSpinner)findViewById(R.id.mand_leave_accountability);
+        accountablity.add(mandaccount);
+        vbmsaccount = (BetterSpinner)findViewById(R.id.vbms_accountability);
+        accountablity.add(vbmsaccount);
+        trainingaccount = (BetterSpinner)findViewById(R.id.training_accountability);
+        accountablity.add(trainingaccount);
+        pacaccount = (BetterSpinner)findViewById(R.id.pac_accountability);
+        accountablity.add(pacaccount);
+        roleaccount = (BetterSpinner)findViewById(R.id.role_elevation_accountability);
+        accountablity.add(roleaccount);
 
 
         reportname = (EditText)findViewById(R.id.title);
@@ -221,6 +253,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void writetopdf()
     {
+
+        flag=1;
         File f = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report");
         if(f.isDirectory())
             Log.d("Main", "writetopdf: " + f.isDirectory());
@@ -239,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         try {
-            reader = new PdfReader( getResources().openRawResource(R.raw.templ) );
+            reader = new PdfReader( getResources().openRawResource(R.raw.finaltemplate) );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -278,6 +312,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        Toast.makeText(MainActivity.this,"PDF Generated", Toast.LENGTH_LONG).show();
 
 
     }
@@ -341,13 +378,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         acroFields.setField(fieldnames.get(47),employeefeed.getText().toString());
         acroFields.setField(fieldnames.get(48),discipline.getText().toString());
         acroFields.setField(fieldnames.get(49),other.getText().toString());
+
+
+        int sum=0;
+        for (int i=0;i<arrayList.size();i++)
+        {
+            int j=0;
+            if(!arrayList.get(i).getText().toString().trim().equals("")) {
+                j = Integer.parseInt(arrayList.get(i).getText().toString().trim());
+            }
+            sum+=j;
+        }
+        int ans = sum/(arrayList.size());
+        acroFields.setField(fieldnames.get(50),String.valueOf(ans)) ;
     }
 
 
     public void checkfill()
     {
-        if(reportname.getText().toString().trim()=="")
+        if(reportname.getText().toString().trim().equals("")) {
             reportname.setError("Please input report name");
+            reportname.requestFocus();
+            Toast.makeText(MainActivity.this,"Please enter name for report",Toast.LENGTH_SHORT).show();
+        }
         else
             writetopdf();
     }
@@ -355,18 +408,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void sendemail()
     {
-        File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/" + reportname.getText().toString().trim() + ".pdf" );
-        Uri path;
-        path = FileProvider.getUriForFile(MainActivity.this, getPackageName(),filelocation);
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-// set the type to 'email'
-        emailIntent .setType("vnd.android.cursor.dir/email");
+        if(flag==0)
+        {
+            Toast.makeText(MainActivity.this, "Please Create the Pdf first", Toast.LENGTH_SHORT).show();
+        }
+        else {
 
-        emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        emailIntent .putExtra(Intent.EXTRA_STREAM, path);
+            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/" + reportname.getText().toString().trim() + ".pdf");
+            Uri path;
+            path = FileProvider.getUriForFile(MainActivity.this, getPackageName(), filelocation);
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+// set the type to 'email'
+            emailIntent.setType("vnd.android.cursor.dir/email");
+
+            emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            emailIntent.putExtra(Intent.EXTRA_STREAM, path);
 // the mail subject
-        emailIntent .putExtra(Intent.EXTRA_SUBJECT, "Here is the Branch Visit Report - Human Resources");
-        startActivity(Intent.createChooser(emailIntent , "Send email..."));
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Here is the Branch Visit Report - Human Resources");
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
+
+        }
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()) {
+            case R.id.menuLogout:
+
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(this, LoginActivity.class));
+
+                break;
+        }
+
+        return true;
     }
 
 
