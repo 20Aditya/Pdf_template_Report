@@ -42,6 +42,8 @@ import java.util.Set;
 import com.example.aditya.pdf_report.BuildConfig;
 import com.weiwangcn.betterspinner.library.BetterSpinner;
 
+import at.markushi.ui.CircleButton;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     PdfStamper stamper;
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Calendar myCalendar = Calendar.getInstance();
     AcroFields acroFields;
-    Button submit,email;
+    CircleButton submit,email;
 
 
 
@@ -120,8 +122,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-        submit = (Button)findViewById(R.id.submit);
-        email = (Button)findViewById(R.id.email);
+        submit = (CircleButton)findViewById(R.id.submit);
+        email = (CircleButton)findViewById(R.id.email);
 
         submit.setOnClickListener(this);
         email.setOnClickListener(this);
