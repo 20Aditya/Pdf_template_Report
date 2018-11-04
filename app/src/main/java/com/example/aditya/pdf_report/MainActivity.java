@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -123,8 +125,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         submit = (CircleButton)findViewById(R.id.submit);
-        email = (CircleButton)findViewById(R.id.email);
 
+        email = (CircleButton)findViewById(R.id.email);
         submit.setOnClickListener(this);
         email.setOnClickListener(this);
 
@@ -133,7 +135,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void anim(CircleButton button) {
 
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        boumceinter inter = new boumceinter(0.2, 20);
+        myAnim.setInterpolator(inter);
+        button.startAnimation(myAnim);
+
+    }
     private void requestPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ) {
             ActivityCompat
@@ -328,7 +337,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dob.setText(sdf.format(myCalendar.getTime()));
     }
 
+    public void refresh(){
+        dob.getText().clear();
+        branchcode.getText().clear();
+        branchname.getText().clear();
+        branchmanager.getText().clear();
+        clusterhead.getText().clear();
+        staffrate.getText().clear();
+        staffaction.getText().clear();
+        staffaccount.getText().clear();
+        sifaarishrate.getText().clear();
+        sifaarishaction.getText().clear();
+        sifaarishaccount.getText().clear();
+        starrate.getText().clear();
+        staraction.getText().clear();
+        staraccount.getText().clear();
+        laterate.getText().clear();
+        lateaction.getText().clear();
+        lateaccount.getText().clear();
+        bhirate.getText().clear();
+        bhiaction.getText().clear();
+        bhiaccount.getText().clear();
+        superrate.getText().clear();
+        superaction.getText().clear();
+        superaccount.getText().clear();
+        newrate.getText().clear();
+        newaction.getText().clear();
+        newaccount.getText().clear();
+        attritionrate.getText().clear();
+        attritionaction.getText().clear();
+        attritionaccount.getText().clear();
+        slfrate.getText().clear();
+        slfaction.getText().clear();
+        slfaccount.getText().clear();
+        mandarate.getText().clear();
+        mandaction.getText().clear();
+        mandaccount.getText().clear();
+        vbmsrate.getText().clear();
+        vbmsaction.getText().clear();
+        vbmsaccount.getText().clear();
+        trainingrate.getText().clear();
+        trainingaction.getText().clear();
+        trainingaccount.getText().clear();
+        pacrate.getText().clear();
+        pacaction.getText().clear();
+        pacaccount.getText().clear();
+        rolerate.getText().clear();
+        roleaction.getText().clear();
+        roleaccount.getText().clear();
+        employeefeed.getText().clear();
+        discipline.getText().clear();
+        other.getText().clear();
 
+        reportname.getText().clear();
+
+    }
     public void setthedata() throws IOException, DocumentException {
         acroFields.setField(fieldnames.get(0),dob.getText().toString());
         acroFields.setField(fieldnames.get(1),branchcode.getText().toString());
@@ -454,6 +517,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, LoginActivity.class));
 
                 break;
+
+            case R.id.refresh:
+                refresh();
+                break;
         }
 
         return true;
@@ -468,10 +535,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.submit:
                 checkfill();
+                anim(submit);
                 break;
 
             case R.id.email:
                 sendemail();
+                anim(email);
                 break;
 
         }

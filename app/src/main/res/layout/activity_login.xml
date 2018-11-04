@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="@color/colorPrimary">
+        android:background="#1F618D">
 
 
 
@@ -26,6 +26,8 @@
 
 
             <EditText
+                android:backgroundTint="#fff"
+                android:textColor="#fff"
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,6 +38,8 @@
                 android:textColorHint="#ffffff" />
 
             <EditText
+                android:backgroundTint="#fff"
+                android:textColor="#fff"
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,16 +49,29 @@
                 android:paddingBottom="15dp"
                 android:textColorHint="#ffffff" />
 
+            <EditText
+                android:backgroundTint="#fff"
+                android:textColor="#fff"
+                android:id="@+id/editTextPasscode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="passcode"
+                android:inputType="textPassword"
+                android:paddingBottom="15dp"
+                android:textColorHint="#ffffff" />
+
             <Button
                 android:id="@+id/buttonLogin"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
                 android:text="Login"
                 android:textAllCaps="false"
-                android:textColor="#64B5F6"
-                android:backgroundTint="#CFD8DC"/>
+                android:textColor="#1F618D"
+                android:backgroundTint="#CFD8DC"
+                style="@style/Theme.AppCompat"/>
 
             <TextView
                 android:id="@+id/textViewSignup"

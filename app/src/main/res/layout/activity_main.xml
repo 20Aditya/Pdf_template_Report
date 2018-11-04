@@ -44,6 +44,7 @@
                 android:orientation="vertical">
 
                 <android.support.design.widget.TextInputLayout
+                    android:layout_marginTop="10dp"
                     android:id="@+id/titleWrapper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -479,9 +480,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Branch Hygiene &amp; Infra."
+                            android:layout_marginLeft="10dp"
                             android:textColor="#BF360C"
                             android:textSize="15sp" />
 
@@ -540,8 +541,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Supervisory Feedback"
                             android:textColor="#BF360C"
                             android:textSize="15sp" />
@@ -726,7 +727,6 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Senior Leadership Feedback"
                             android:textColor="#BF360C"
@@ -790,7 +790,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
+                            android:layout_marginLeft="30dp"
                             android:layout_marginTop="5dp"
                             android:text="Mandatory Leave"
                             android:textColor="#BF360C"
@@ -892,7 +892,8 @@
                                 android:textSize="15sp"
                                 android:breakStrategy="balanced"
                                 android:singleLine="true"
-                                android:padding="5dp" />
+                                android:padding="5dp"
+                                android:backgroundTint="#fff"/>
                         </android.support.design.widget.TextInputLayout>
 
                         <com.weiwangcn.betterspinner.library.BetterSpinner
@@ -919,7 +920,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="60dp"
+                            android:layout_marginLeft="30dp"
                             android:layout_marginTop="5dp"
                             android:text="Training Coverage"
                             android:textColor="#BF360C"
@@ -982,9 +983,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Performance Approval Clarity"
                             android:textSize="13sp"
-                            android:layout_marginLeft="60dp"
                             android:textColor="#BF360C"
                             />
 
