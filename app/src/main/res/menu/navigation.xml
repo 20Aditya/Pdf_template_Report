@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/branch"
+        android:icon="@drawable/if_meanicons_60_197221"
+        android:title="Branch" />
+
+
+    <item
+        android:id="@+id/group"
+        android:icon="@drawable/if_group2_309041"
+        android:title="Group" />
+
+</menu>
