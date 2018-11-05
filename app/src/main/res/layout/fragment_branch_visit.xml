@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:padding="15dp"
     android:id="@+id/branch_visit"
+    android:background="#EEEEEE"
     >
 
     <LinearLayout
@@ -14,19 +14,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <android.support.v7.widget.CardView
-            android:layout_marginLeft="120dp"
             android:layout_marginBottom="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="7dp"
-            android:elevation="10dp">
+            android:elevation="10dp"
+            android:layout_gravity="center_horizontal">
             <TextView
                 android:padding="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="REPORT"
+                android:text="HR Branch Visit Report"
                 android:textSize="15sp"
-                android:textColor="#BF360C"
+                android:textColor="#0097A7"
                 />
         </android.support.v7.widget.CardView>
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="7dp"
             android:layout_gravity="center_horizontal"
-
+            android:layout_marginBottom="15dp"
             >
 
             <LinearLayout
@@ -49,7 +49,8 @@
                     android:id="@+id/titleWrapper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="#FF8A65"                    >
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput" >
 
                     <EditText
                         android:id="@+id/title"
@@ -69,7 +70,8 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#FF8A65"
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"
                     android:id="@+id/descriptionlWrapper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,7 +97,9 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#FF8A65"                    android:id="@+id/BranchCodewrapper"
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"
+                    android:id="@+id/BranchCodewrapper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp">
@@ -122,7 +126,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#FF8A65">
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/branch_name"
@@ -145,7 +150,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#FF8A65">
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/branch_manager"
@@ -169,7 +175,8 @@
                     android:backgroundTint="#fff"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#FF8A65">
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/cluster_head"
@@ -206,7 +213,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="Section A | Performance Measures"
                 android:textSize="15sp"
-                android:textColor="#BF360C"
+                android:textColor="#0097A7"
                 />
         </android.support.v7.widget.CardView>
 
@@ -226,10 +233,14 @@
                     android:layout_marginRight="15dp"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="7dp">
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -237,25 +248,17 @@
                             android:text="Staffing"
                             android:textSize="15sp"
                             android:layout_marginLeft="60dp"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             />
 
-
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:layout_marginTop="10dp"
-                            android:id="@+id/staff_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65"                            android:backgroundTint="#fff">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"
+                            android:backgroundTint="#fff">
 
                             <EditText
                                 android:id="@+id/staff_action_plan"
@@ -272,6 +275,8 @@
                                 android:singleLine="true"
                                 android:padding="5dp" />
                         </android.support.design.widget.TextInputLayout>
+
+
                         <com.weiwangcn.betterspinner.library.BetterSpinner
                             android:id="@+id/staff_accountability"
                             android:layout_width="match_parent"
@@ -279,18 +284,26 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"
+                            />
+
                     </LinearLayout>
+
                 </android.support.v7.widget.CardView>
+
+
                 <android.support.v7.widget.CardView
                     android:layout_width="200dp"
                     android:layout_marginRight="15dp"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="7dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
 
                             android:layout_width="wrap_content"
@@ -298,24 +311,16 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Karo Sifarish"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:layout_marginTop="10dp"
-                            android:id="@+id/sifarish_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColorHint="#FF8A65"                            android:layout_marginTop="2dp">
-
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"
+                            android:layout_marginTop="6dp">
 
 
                             <EditText
@@ -324,7 +329,6 @@
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
-                                android:layout_marginTop="3dp"
                                 android:gravity="clip_horizontal"
                                 android:hint="Action Plan"
                                 android:backgroundTint="#fff"
@@ -341,8 +345,13 @@
                             android:backgroundTint="#fff"
                             android:hint="Accountability"
                             android:textSize="15sp"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
+
+
                     </LinearLayout>
+
+
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
@@ -351,6 +360,7 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="7dp"
                     android:layout_marginBottom="8dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -362,23 +372,16 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Star Awards"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/star_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                             <EditText
                                 android:id="@+id/star_action_plan"
@@ -403,7 +406,8 @@
                             android:hint="Accountability"
                             android:backgroundTint="#fff"
                             android:textSize="15sp"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -423,24 +427,17 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Late Sitting"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/Late_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                             <EditText
                                 android:id="@+id/Late_action_plan"
@@ -465,7 +462,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView
@@ -485,24 +483,17 @@
                             android:layout_marginTop="5dp"
                             android:text="Branch Hygiene &amp; Infra."
                             android:layout_marginLeft="10dp"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/bhi_rating"
-                            android:backgroundTint="#fff"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                             <EditText
                                 android:id="@+id/bhi_action_plan"
@@ -527,7 +518,8 @@
                             android:layout_height="wrap_content"
                             android:hint="Accountability"
                             android:textSize="15sp"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView
@@ -546,24 +538,17 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="10dp"
                             android:text="Supervisory Feedback"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/supervisory_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
 
                             <EditText
@@ -588,7 +573,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -609,24 +595,17 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
                             android:text="New Joinees Feedback"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/new_joinee_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                             <EditText
                                 android:id="@+id/new_joinee_action_plan"
@@ -651,7 +630,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView
@@ -671,24 +651,17 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Attrition"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/attrition_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                             <EditText
                                 android:id="@+id/attrition_action_plan"
@@ -713,7 +686,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView
@@ -731,24 +705,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="Senior Leadership Feedback"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/slf_rating"
-                            android:backgroundTint="#fff"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
 
                             <EditText
@@ -775,7 +741,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -795,25 +762,18 @@
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="5dp"
                             android:text="Mandatory Leave"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/mand_leave_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="200dp"
                             android:layout_marginRight="15dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
 
                             <EditText
@@ -839,7 +799,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -861,24 +822,17 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="VBMS"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/vbms_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
 
                             <EditText
@@ -905,7 +859,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -925,24 +880,16 @@
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="5dp"
                             android:text="Training Coverage"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             android:textSize="15sp" />
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/training_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
 
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                             <EditText
                                 android:id="@+id/training_action_plan"
@@ -968,7 +915,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            /></LinearLayout>
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            /></LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
@@ -988,24 +936,17 @@
                             android:layout_marginLeft="10dp"
                             android:text="Performance Approval Clarity"
                             android:textSize="13sp"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             />
 
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/pac_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
+
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                             <EditText
                                 android:id="@+id/pac_action_plan"
@@ -1030,7 +971,8 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -1051,25 +993,17 @@
                             android:text="Role Elevation"
                             android:textSize="15sp"
                             android:layout_marginLeft="60dp"
-                            android:textColor="#BF360C"
+                            android:textColor="#0097A7"
                             />
 
 
-                        <com.weiwangcn.betterspinner.library.BetterSpinner
-                            android:id="@+id/role_elevation_rating"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Ratings"
-                            android:textSize="15sp"
-                            android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"
-                            android:layout_marginTop="10dp"/>
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="200dp"
                             android:layout_marginRight="15dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#FF8A65">
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
 
                             <EditText
@@ -1088,6 +1022,7 @@
                                 android:textSize="15sp"
                                 android:padding="5dp" />
                         </android.support.design.widget.TextInputLayout>
+
                         <com.weiwangcn.betterspinner.library.BetterSpinner
                             android:id="@+id/role_elevation_accountability"
                             android:layout_width="match_parent"
@@ -1095,10 +1030,16 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#FF8A65"                            />
+                            android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"                            />
+
+
                     </LinearLayout>
+
                 </android.support.v7.widget.CardView>
+
             </LinearLayout>
+
         </HorizontalScrollView>
 
         <android.support.v7.widget.CardView
@@ -1117,7 +1058,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="Section B | Critical Observations"
                 android:textSize="15sp"
-                android:textColor="#BF360C"
+                android:textColor="#0097A7"
                 />
         </android.support.v7.widget.CardView>
 
@@ -1136,13 +1077,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#FF8A65">
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/employee_feedback"
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
                         android:gravity="clip_horizontal"
@@ -1162,13 +1104,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#FF8A65">
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/discipline"
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
                         android:gravity="clip_horizontal"
@@ -1188,13 +1131,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#FF8A65">
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/other"
 
                         android:layout_width="fill_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="70dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
                         android:gravity="clip_horizontal"
@@ -1228,7 +1172,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="80dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:padding="12dp">
             <android.support.v7.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -1240,7 +1185,8 @@
                     android:id="@+id/submit"
                     android:layout_width="50dip"
                     android:layout_height="50dip"
-                    android:src="@drawable/d"
+                    android:src="@drawable/submit"
+                    android:layout_margin="8dp"
                     app:cb_color="#fff"
                     app:cb_pressedRingWidth="8dip"/>
             </android.support.v7.widget.CardView>
@@ -1254,13 +1200,14 @@
                 <at.markushi.ui.CircleButton
                     android:id="@+id/email"
                     android:layout_width="50dip"
+                    android:layout_margin="8dp"
                     android:layout_height="50dip"
                     android:src="@drawable/gmail"
                     app:cb_color="#fff"
                     app:cb_pressedRingWidth="8dip"/>
             </android.support.v7.widget.CardView>
 
-            />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

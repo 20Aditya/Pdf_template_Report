@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/group">
+    android:id="@+id/group"
+    android:layout_marginBottom="70dp"
+    android:background="#EEEEEE">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="50dp">
+        android:layout_marginBottom="10dp">
 
 
         <android.support.v7.widget.CardView
@@ -28,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="Group Initiatives"
                 android:textSize="18sp"
-                android:textColor="#BF360C"
+                android:textColor="#0097A7"
                 />
         </android.support.v7.widget.CardView>
 
@@ -52,11 +54,12 @@
 
 
                 <android.support.design.widget.TextInputLayout
-                android:id="@+id/titleWrapper"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#FF8A65"
-                android:layout_marginTop="10dp">
+                    android:id="@+id/titleWrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"
+                    android:layout_marginTop="10dp">
 
                 <EditText
                     android:id="@+id/title"
@@ -81,16 +84,18 @@
                 android:id="@+id/event_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ratings"
+                android:hint="Event's Category"
                 android:textSize="15sp"
                 android:backgroundTint="#fff"
-                android:textColorHint="#FF8A65"   />
+                android:textColorHint="#0288D1"   />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/dateWrapper"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#FF8A65"                    >
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput"
+                >
 
                 <EditText
                     android:id="@+id/date"
@@ -117,8 +122,9 @@
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/timeWrapper"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#FF8A65">
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#0288D1"
+                    android:theme="@style/textinput">
 
                 <EditText
                     android:id="@+id/time"
@@ -144,7 +150,9 @@
                 android:id="@+id/venueWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#FF8A65"                    >
+                android:textColorHint="#0288D1"
+                android:theme="@style/textinput"
+                >
 
                 <EditText
                     android:id="@+id/venue"
@@ -167,7 +175,9 @@
                 android:id="@+id/byWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#FF8A65"                    >
+                android:textColorHint="#0288D1"
+                android:theme="@style/textinput"
+                >
 
                 <EditText
                     android:id="@+id/by"
@@ -190,7 +200,8 @@
                 android:id="@+id/minutesWrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="#FF8A65" >
+                android:textColorHint="#0288D1"
+                android:theme="@style/textinput" >
 
                 <EditText
                     android:id="@+id/minutes"
@@ -222,22 +233,24 @@
 
             <Button
                 android:id="@+id/upload"
-
+                android:background="#fff"
+                android:textColor="#0097A7"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Upload Image 1"/>
+                android:text="Image 1"/>
 
 
             <Button
                 android:id="@+id/upload1"
-
+                android:background="#fff"
+                android:textColor="#0097A7"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Upload Image 2"/>
+                android:text="Image 2"/>
 
 
 
@@ -251,18 +264,21 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="6dp"
+            android:padding="15dp"
             >
             <android.support.v7.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:elevation="15dp"
                 app:cardElevation="10dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                >
                 <at.markushi.ui.CircleButton
                     android:id="@+id/submit"
                     android:layout_width="50dip"
+                    android:layout_margin="8dp"
                     android:layout_height="50dip"
-                    android:src="@drawable/d"
+                    android:src="@drawable/submit"
                     app:cb_color="#fff"
                     app:cb_pressedRingWidth="8dip"/>
             </android.support.v7.widget.CardView>
@@ -275,6 +291,7 @@
                 <at.markushi.ui.CircleButton
                     android:id="@+id/email"
                     android:layout_width="50dip"
+                    android:layout_margin="8dp"
                     android:layout_height="50dip"
                     android:src="@drawable/gmail"
                     app:cb_color="#fff"

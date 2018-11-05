@@ -13,4 +13,9 @@
         <item name="colorControlHighlight">#FFF59D</item>
     </style>
 
+    <style name="textinput">
+        <item name="colorControlNormal">#0288D1</item>
+        <item name="colorControlActivated">#0288D1</item>
+    </style>
+
 </resources>

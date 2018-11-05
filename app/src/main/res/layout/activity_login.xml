@@ -11,67 +11,85 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_weight="1"
-        android:background="#1F618D">
+        android:background="#ffffff">
+
+
 
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:paddingLeft="15dp"
             android:paddingRight="15dp">
 
 
+            <ImageView
+
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="35dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center_horizontal"
+                />
+
+
             <EditText
-                android:backgroundTint="#fff"
-                android:textColor="#fff"
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#0288D1"
                 android:fontFamily="sans-serif"
                 android:hint="email"
                 android:inputType="textEmailAddress"
                 android:paddingBottom="15dp"
-                android:textColorHint="#ffffff" />
+                android:textColor="#0288D1"
+                android:textColorHint="#0288D1" />
 
             <EditText
-                android:backgroundTint="#fff"
-                android:textColor="#fff"
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#0288D1"
                 android:fontFamily="sans-serif"
                 android:hint="password"
                 android:inputType="textPassword"
                 android:paddingBottom="15dp"
-                android:textColorHint="#ffffff" />
+                android:textColor="#0288D1"
+                android:textColorHint="#0288D1" />
 
             <EditText
-                android:backgroundTint="#fff"
-                android:textColor="#fff"
                 android:id="@+id/editTextPasscode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#0288D1"
                 android:fontFamily="sans-serif"
                 android:hint="passcode"
                 android:inputType="textPassword"
                 android:paddingBottom="15dp"
-                android:textColorHint="#ffffff" />
+                android:textColor="#0288D1"
+                android:textColorHint="#0288D1" />
 
             <Button
                 android:id="@+id/buttonLogin"
+                style="@style/Theme.AppCompat"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
+                android:backgroundTint="#0288D1"
                 android:text="Login"
                 android:textAllCaps="false"
-                android:textColor="#1F618D"
-                android:backgroundTint="#CFD8DC"
-                style="@style/Theme.AppCompat"/>
+                android:textColor="#fff" />
 
             <TextView
                 android:id="@+id/textViewSignup"
@@ -81,7 +99,8 @@
                 android:text="Don't have account? Sign Up"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="#ffffff" />
+                android:textColor="#0288D1"
+                />
 
 
         </LinearLayout>

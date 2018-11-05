@@ -43,6 +43,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Set;
 
 import at.markushi.ui.CircleButton;
@@ -60,22 +61,20 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
 
     PdfStamper stamper;
-    int flag = 0;
+    static int flag = 0;
     PdfReader reader ;
-    String[] ratings = { "1", "2","3", "4", "5" };
     String[] account = { "RSM HR", "Branch Manager", "Cluster Head", "Circle Head", "Line + HR", "HR Operations", "ER", "IT", "Admin", "Infra", "Marketing", "WBO", "TPP", "Retail Assets", "Business Assets" };
     static EditText dob,branchcode,branchmanager,branchname,clusterhead,staffaction,sifaarishaction;
     static EditText staraction,lateaction,bhiaction,superaction;
     static EditText newaction,attritionaction,slfaction,mandaction,vbmsaction,trainingaction;
     static EditText pacaction,roleaction, reportname,employeefeed,discipline,other;
-    static BetterSpinner staffrate,sifaarishrate,starrate,laterate,bhirate,superrate,newrate,attritionrate,slfrate,mandarate,vbmsrate,trainingrate;
-    static BetterSpinner pacrate,rolerate,vbmsaccount,trainingaccount,pacaccount,roleaccount,slfaccount;
+
+    static BetterSpinner vbmsaccount,trainingaccount,pacaccount,roleaccount,slfaccount;
     static BetterSpinner staffaccount,sifaarishaccount,staraccount,lateaccount,bhiaccount,superaccount,newaccount,attritionaccount,mandaccount;
     ArrayList<BetterSpinner> arrayList = new ArrayList<BetterSpinner>();
     ArrayList<String> fieldnames = new ArrayList<String>();
     ArrayList<BetterSpinner> accountablity = new ArrayList<BetterSpinner>();
 
-    Calendar myCalendar = Calendar.getInstance();
     AcroFields acroFields;
     CircleButton submit,email;
 
@@ -122,7 +121,6 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_dropdown_item_1line, ratings);
         ArrayAdapter<String> accountadapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),android.R.layout.simple_dropdown_item_1line, account
         );
         initialiseviews(view);
@@ -130,12 +128,6 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
 
         //Set the number of characters the user must type before the drop down list is shown
-        for (int i=0;i<arrayList.size();i++) {
-
-            //Set the adapter
-            arrayList.get(i).setAdapter(adapter);
-        }
-
         for (int i=0;i<accountablity.size();i++) {
 
             //Set the adapter
@@ -181,34 +173,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
     public void initialiseviews(View view)
     {
-        staffrate = (BetterSpinner)view.findViewById(R.id.staff_rating);
-        arrayList.add(staffrate);
-        sifaarishrate = (BetterSpinner)view.findViewById(R.id.sifarish_rating);
-        arrayList.add(sifaarishrate);
-        starrate = (BetterSpinner)view.findViewById(R.id.star_rating);
-        arrayList.add(starrate);
-        laterate = (BetterSpinner)view.findViewById(R.id.Late_rating);
-        arrayList.add(laterate);
-        bhirate = (BetterSpinner)view.findViewById(R.id.bhi_rating);
-        arrayList.add(bhirate);
-        superrate = (BetterSpinner)view.findViewById(R.id.supervisory_rating);
-        arrayList.add(superrate);
-        newrate = (BetterSpinner)view.findViewById(R.id.new_joinee_rating);
-        arrayList.add(newrate);
-        attritionrate = (BetterSpinner)view.findViewById(R.id.attrition_rating);
-        arrayList.add(attritionrate);
-        slfrate = (BetterSpinner)view.findViewById(R.id.slf_rating);
-        arrayList.add(slfrate);
-        mandarate = (BetterSpinner)view.findViewById(R.id.mand_leave_rating);
-        arrayList.add(mandarate);
-        vbmsrate = (BetterSpinner)view.findViewById(R.id.vbms_rating);
-        arrayList.add(vbmsrate);
-        trainingrate = (BetterSpinner)view.findViewById(R.id.training_rating);
-        arrayList.add(trainingrate);
-        pacrate = (BetterSpinner)view.findViewById(R.id.pac_rating);
-        arrayList.add(pacrate);
-        rolerate = (BetterSpinner)view.findViewById(R.id.role_elevation_rating);
-        arrayList.add(rolerate);
+
 
         staffaction = (EditText)view.findViewById(R.id.staff_action_plan);
         sifaarishaction = (EditText)view.findViewById(R.id.sifarish_action_plan);
@@ -282,7 +247,17 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
             Log.d("Main", "writetopdf: " + f.isDirectory());
         }
 
-        File pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/" + reportname.getText().toString().trim() + ".pdf");
+        File f1 = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/branch_visit_reports");
+
+        if(f1.isDirectory())
+            Log.d("Main", "writetopdf: " + f1.isDirectory());
+        else {
+            f1.mkdir();
+            Log.d("Main", "writetopdf: " + f1.isDirectory());
+        }
+
+
+        File pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/branch_visit_reports/" + reportname.getText().toString().trim() + ".pdf");
         OutputStream output = null;
         try {
             output = new FileOutputStream(pdf);
@@ -292,7 +267,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
 
         try {
-            reader = new PdfReader( getResources().openRawResource(R.raw.finaltemplate) );
+            reader = new PdfReader( getResources().openRawResource(R.raw.branchvisit) );
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -300,9 +275,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
         try {
             stamper = new PdfStamper(reader, output);
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (DocumentException | IOException e) {
             e.printStackTrace();
         }
         acroFields = stamper.getAcroFields();
@@ -316,9 +289,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
         try {
             setthedata();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (DocumentException e) {
+        } catch (IOException | DocumentException e) {
             e.printStackTrace();
         }
 
@@ -326,14 +297,12 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         stamper.setFormFlattening(true);
         try {
             stamper.close();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (DocumentException | IOException e) {
             e.printStackTrace();
         }
 
 
-        Toast.makeText(getActivity().getApplicationContext(),"PDF Generated", Toast.LENGTH_LONG).show();
+        Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),"PDF Generated", Toast.LENGTH_LONG).show();
 
 
     }
@@ -346,46 +315,47 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         branchname.getText().clear();
         branchmanager.getText().clear();
         clusterhead.getText().clear();
-        staffrate.getText().clear();
+
         staffaction.getText().clear();
         staffaccount.getText().clear();
-        sifaarishrate.getText().clear();
+
         sifaarishaction.getText().clear();
         sifaarishaccount.getText().clear();
-        starrate.getText().clear();
+
         staraction.getText().clear();
         staraccount.getText().clear();
-        laterate.getText().clear();
+
         lateaction.getText().clear();
         lateaccount.getText().clear();
-        bhirate.getText().clear();
+
         bhiaction.getText().clear();
         bhiaccount.getText().clear();
-        superrate.getText().clear();
+
         superaction.getText().clear();
         superaccount.getText().clear();
-        newrate.getText().clear();
+
         newaction.getText().clear();
         newaccount.getText().clear();
-        attritionrate.getText().clear();
+
         attritionaction.getText().clear();
         attritionaccount.getText().clear();
-        slfrate.getText().clear();
+
         slfaction.getText().clear();
         slfaccount.getText().clear();
-        mandarate.getText().clear();
+
         mandaction.getText().clear();
         mandaccount.getText().clear();
-        vbmsrate.getText().clear();
+
         vbmsaction.getText().clear();
         vbmsaccount.getText().clear();
-        trainingrate.getText().clear();
+
         trainingaction.getText().clear();
         trainingaccount.getText().clear();
-        pacrate.getText().clear();
+
+
         pacaction.getText().clear();
         pacaccount.getText().clear();
-        rolerate.getText().clear();
+
         roleaction.getText().clear();
         roleaccount.getText().clear();
         employeefeed.getText().clear();
@@ -394,6 +364,8 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
         reportname.getText().clear();
 
+        flag=0;
+
     }
     public void setthedata() throws IOException, DocumentException {
         acroFields.setField(fieldnames.get(0),dob.getText().toString());
@@ -401,64 +373,54 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         acroFields.setField(fieldnames.get(2),branchname.getText().toString());
         acroFields.setField(fieldnames.get(3),branchmanager.getText().toString());
         acroFields.setField(fieldnames.get(4),clusterhead.getText().toString());
-        acroFields.setField(fieldnames.get(5),staffrate.getText().toString());
-        acroFields.setField(fieldnames.get(6),staffaction.getText().toString());
-        acroFields.setField(fieldnames.get(7),staffaccount.getText().toString());
-        acroFields.setField(fieldnames.get(8),sifaarishrate.getText().toString());
-        acroFields.setField(fieldnames.get(9),sifaarishaction.getText().toString());
-        acroFields.setField(fieldnames.get(10),sifaarishaccount.getText().toString());
-        acroFields.setField(fieldnames.get(11),starrate.getText().toString());
-        acroFields.setField(fieldnames.get(12),staraction.getText().toString());
-        acroFields.setField(fieldnames.get(13),staraccount.getText().toString());
-        acroFields.setField(fieldnames.get(14),laterate.getText().toString());
-        acroFields.setField(fieldnames.get(15),lateaction.getText().toString());
-        acroFields.setField(fieldnames.get(16),lateaccount.getText().toString());
-        acroFields.setField(fieldnames.get(17),bhirate.getText().toString());
-        acroFields.setField(fieldnames.get(18),bhiaction.getText().toString());
-        acroFields.setField(fieldnames.get(19),bhiaccount.getText().toString());
-        acroFields.setField(fieldnames.get(20),superrate.getText().toString());
-        acroFields.setField(fieldnames.get(21),superaction.getText().toString());
-        acroFields.setField(fieldnames.get(22),superaccount.getText().toString());
-        acroFields.setField(fieldnames.get(23),newrate.getText().toString());
-        acroFields.setField(fieldnames.get(24),newaction.getText().toString());
-        acroFields.setField(fieldnames.get(25),newaccount.getText().toString());
-        acroFields.setField(fieldnames.get(26),attritionrate.getText().toString());
-        acroFields.setField(fieldnames.get(27),attritionaction.getText().toString());
-        acroFields.setField(fieldnames.get(28),attritionaccount.getText().toString());
-        acroFields.setField(fieldnames.get(29),slfrate.getText().toString());
-        acroFields.setField(fieldnames.get(30),slfaction.getText().toString());
-        acroFields.setField(fieldnames.get(31),slfaccount.getText().toString());
-        acroFields.setField(fieldnames.get(32),mandarate.getText().toString());
-        acroFields.setField(fieldnames.get(33),mandaction.getText().toString());
-        acroFields.setField(fieldnames.get(34),mandaccount.getText().toString());
-        acroFields.setField(fieldnames.get(35),vbmsrate.getText().toString());
-        acroFields.setField(fieldnames.get(36),vbmsaction.getText().toString());
-        acroFields.setField(fieldnames.get(37),vbmsaccount.getText().toString());
-        acroFields.setField(fieldnames.get(38),trainingrate.getText().toString());
-        acroFields.setField(fieldnames.get(39),trainingaction.getText().toString());
-        acroFields.setField(fieldnames.get(40),trainingaccount.getText().toString());
-        acroFields.setField(fieldnames.get(41),pacrate.getText().toString());
-        acroFields.setField(fieldnames.get(42),pacaction.getText().toString());
-        acroFields.setField(fieldnames.get(43),pacaccount.getText().toString());
-        acroFields.setField(fieldnames.get(44),rolerate.getText().toString());
-        acroFields.setField(fieldnames.get(45),roleaction.getText().toString());
-        acroFields.setField(fieldnames.get(46),roleaccount.getText().toString());
-        acroFields.setField(fieldnames.get(47),employeefeed.getText().toString());
-        acroFields.setField(fieldnames.get(48),discipline.getText().toString());
-        acroFields.setField(fieldnames.get(49),other.getText().toString());
+
+        acroFields.setField(fieldnames.get(5),staffaction.getText().toString());
+        acroFields.setField(fieldnames.get(6),staffaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(7),sifaarishaction.getText().toString());
+        acroFields.setField(fieldnames.get(8),sifaarishaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(9),staraction.getText().toString());
+        acroFields.setField(fieldnames.get(10),staraccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(11),lateaction.getText().toString());
+        acroFields.setField(fieldnames.get(12),lateaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(13),bhiaction.getText().toString());
+        acroFields.setField(fieldnames.get(14),bhiaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(15),superaction.getText().toString());
+        acroFields.setField(fieldnames.get(16),superaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(17),newaction.getText().toString());
+        acroFields.setField(fieldnames.get(18),newaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(19),attritionaction.getText().toString());
+        acroFields.setField(fieldnames.get(20),attritionaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(21),slfaction.getText().toString());
+        acroFields.setField(fieldnames.get(22),slfaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(23),mandaction.getText().toString());
+        acroFields.setField(fieldnames.get(24),mandaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(25),vbmsaction.getText().toString());
+        acroFields.setField(fieldnames.get(26),vbmsaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(27),trainingaction.getText().toString());
+        acroFields.setField(fieldnames.get(28),trainingaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(29),pacaction.getText().toString());
+        acroFields.setField(fieldnames.get(30),pacaccount.getText().toString());
+
+        acroFields.setField(fieldnames.get(31),roleaction.getText().toString());
+        acroFields.setField(fieldnames.get(32),roleaccount.getText().toString());
+        acroFields.setField(fieldnames.get(33),employeefeed.getText().toString());
+        acroFields.setField(fieldnames.get(34),discipline.getText().toString());
+        acroFields.setField(fieldnames.get(35),other.getText().toString());
 
 
-        int sum=0;
-        for (int i=0;i<arrayList.size();i++)
-        {
-            int j=0;
-            if(!arrayList.get(i).getText().toString().trim().equals("")) {
-                j = Integer.parseInt(arrayList.get(i).getText().toString().trim());
-            }
-            sum+=j;
-        }
-        int ans = sum/(arrayList.size());
-        acroFields.setField(fieldnames.get(50),String.valueOf(ans)) ;
+
     }
 
 
@@ -471,7 +433,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         if(reportname.getText().toString().trim().equals("")) {
             reportname.setError("Please input report name");
             reportname.requestFocus();
-            Toast.makeText(getActivity().getApplicationContext(),"Please enter name for report",Toast.LENGTH_SHORT).show();
+            Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),"Please enter name for report",Toast.LENGTH_SHORT).show();
         }
         else
             writetopdf();
@@ -482,13 +444,13 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
     {
         if(flag==0)
         {
-            Toast.makeText(getActivity().getApplicationContext(), "Please Create the Pdf first", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(), "Please Create the Pdf first", Toast.LENGTH_SHORT).show();
         }
         else {
 
-            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/" + reportname.getText().toString().trim() + ".pdf");
+            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/branch_visit_reports/" + reportname.getText().toString().trim() + ".pdf");
             Uri path;
-            path = FileProvider.getUriForFile(getActivity().getApplicationContext(), getActivity().getPackageName(), filelocation);
+            path = FileProvider.getUriForFile(Objects.requireNonNull(getActivity()).getApplicationContext(), getActivity().getPackageName(), filelocation);
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
 // set the type to 'email'
             emailIntent.setType("vnd.android.cursor.dir/email");

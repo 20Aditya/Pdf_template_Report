@@ -66,9 +66,9 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
 
     View view;
-    static File pdf,f;
+    static File pdf,f,f1;
     static PdfStamper stamper;
-    int flag = 0;
+    static int flag = 0;
     static PdfReader reader ;
     static EditText title,date,time,venue,by,minutes;
     static BetterSpinner event_category;
@@ -208,7 +208,17 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
             Log.d("Main", "writetopdf: " + f.isDirectory());
         }
 
-        pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/" + title.getText().toString().trim() + ".pdf");
+
+        f1 = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/group_initiatives");
+        if(f1.isDirectory())
+            Log.d("Main", "writetopdf: " + f1.isDirectory());
+        else {
+            f1.mkdir();
+            Log.d("Main", "writetopdf: " + f1.isDirectory());
+        }
+
+
+        pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/group_initiatives/" + title.getText().toString().trim() + ".pdf");
         OutputStream output = null;
         try {
             output = new FileOutputStream(pdf);
@@ -263,8 +273,8 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
             image.setDirectReference(ref.getIndirectReference());
 
-            image.setAbsolutePosition(110, 130);
-            image.scaleAbsolute(180, 125);
+            image.setAbsolutePosition(110, 80);
+            image.scaleToFit(180, 125);
             PdfContentByte over = stamper.getOverContent(1);
             over.addImage(image);
 
@@ -281,8 +291,8 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
             image2.setDirectReference(ref2.getIndirectReference());
 
-            image2.setAbsolutePosition(320, 130);
-            image2.scaleAbsolute(180, 125);
+            image2.setAbsolutePosition(320, 80);
+            image2.scaleToFit(180,125);
             PdfContentByte over2 = stamper.getOverContent(1);
             over2.addImage(image2);
 
@@ -319,6 +329,7 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
         by.getText().clear();
         minutes.getText().clear();
         count=0;
+        flag=0;
     }
 
 
@@ -353,7 +364,7 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
         }
         else {
 
-            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/" + title.getText().toString().trim() + ".pdf");
+            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/group_initiatives/" + title.getText().toString().trim() + ".pdf");
             Uri path;
             path = FileProvider.getUriForFile(Objects.requireNonNull(getActivity()).getApplicationContext(), getActivity().getPackageName(), filelocation);
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
