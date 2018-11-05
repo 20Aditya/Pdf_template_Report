@@ -1,27 +1,27 @@
 {
   "project_info": {
     "project_number": "496705751505",
-    "firebase_url": "",
+    "firebase_url": "https://pdfreport-7256d.firebaseio.com",
     "project_id": "pdfreport-7256d",
-    "storage_bucket": ""
+    "storage_bucket": "pdfreport-7256d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "",
+        "mobilesdk_app_id": "1:496705751505:android:0a04473ddb8a0a46",
         "android_client_info": {
           "package_name": "com.example.aditya.pdf_report"
         }
       },
       "oauth_client": [
         {
-          "client_id": "4",
+          "client_id": "496705751505-elgmam9bd5mto5kfgsjgfn62sgb342s4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": ""
+          "current_key": "AIzaSyBntnS-cz0kArWnjGh03AJabtMlttF69UY"
         }
       ],
       "services": {
