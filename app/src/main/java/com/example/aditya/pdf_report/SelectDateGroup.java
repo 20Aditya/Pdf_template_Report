@@ -8,7 +8,7 @@ import android.widget.DatePicker;
 
 import java.util.Calendar;
 
-public class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+public class SelectDateGroup extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -20,10 +20,11 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
     }
 
     public void onDateSet(DatePicker view, int yy, int mm, int dd) {
-        populateSetDate(yy, mm+1, dd);
+        populateSetDate(yy, mm + 1, dd);
     }
+
     public void populateSetDate(int year, int month, int day) {
-        BranchVisitFragment.dob.setText(day+"/"+month+"/"+year);
+        GroupFragment.date.setText(day + "/" + month + "/" + year);
     }
 
 }

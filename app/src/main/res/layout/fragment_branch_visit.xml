@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:padding="15dp"
+    android:id="@+id/branch_visit"
     >
 
     <LinearLayout

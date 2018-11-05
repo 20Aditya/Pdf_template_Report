@@ -53,6 +53,7 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        requestPermission();
 
 
         loadFragment(new BranchVisitFragment());
@@ -99,7 +100,7 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
     private void loadFragment(Fragment fragment) {
         // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container, fragment);
+        transaction.replace(R.id.frame_container, fragment,"Fragment");
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -131,8 +132,12 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
                 break;
 
             case R.id.refresh:
-                BranchVisitFragment.refresh();
-                GroupFragment.refresh();
+
+                Fragment f = getSupportFragmentManager().findFragmentById(R.id.frame_container);
+                if( f instanceof BranchVisitFragment)
+                    BranchVisitFragment.refresh();
+                if(f instanceof GroupFragment)
+                    GroupFragment.refresh();
                 break;
         }
 
