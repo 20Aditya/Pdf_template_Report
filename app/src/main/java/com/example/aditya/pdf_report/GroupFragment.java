@@ -77,12 +77,13 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
     Bitmap bitmap,bitmap2;
     Calendar myCalendar = Calendar.getInstance();
     AcroFields acroFields;
-    CircleButton submit,email;
+    Button submit,email;
     Button upload,upload1;
     ArrayList<String> fieldnames = new ArrayList<String>();
     private int PICK_IMAGE_REQUEST = 1;
     private static  int count = 0;
 
+    String d,s,t,k;
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -161,6 +162,7 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
         //Buttons
 
+
         upload.setOnClickListener(this);
         upload1.setOnClickListener(this);
         submit.setOnClickListener(this);
@@ -184,8 +186,8 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
         minutes = (EditText)view.findViewById(R.id.minutes);
         upload = (Button)view.findViewById(R.id.upload);
         upload1 = (Button)view.findViewById(R.id.upload1);
-        submit = (CircleButton)view.findViewById(R.id.submit);
-        email = (CircleButton)view.findViewById(R.id.email);
+        submit = (Button)view.findViewById(R.id.submit);
+        email = (Button)view.findViewById(R.id.email);
     }
 
 
@@ -218,7 +220,31 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
         }
 
 
-        pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/group_initiatives/" + title.getText().toString().trim() + ".pdf");
+
+        d = date.getText().toString().trim();
+        s = "";
+        for(int i=0;i<d.length();i++)
+        {
+            if(d.charAt(i)=='/')
+                continue;
+
+            s = s + d.charAt(i);
+        }
+
+        t = time.getText().toString().trim();
+        k = "";
+
+        for(int i=0;i<t.length();i++)
+        {
+            if(t.charAt(i)==':')
+                continue;
+
+            k = k + t.charAt(i);
+        }
+
+
+
+        pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/group_initiatives/" + title.getText().toString().trim() + "_"+ s +"_"+k + ".pdf");
         OutputStream output = null;
         try {
             output = new FileOutputStream(pdf);
@@ -261,40 +287,45 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
         //add image
 
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-            byte[] imagebyte = stream.toByteArray();
-            Image image = Image.getInstance(imagebyte);
+            if(bitmap!=null) {
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                byte[] imagebyte = stream.toByteArray();
+                Image image = Image.getInstance(imagebyte);
 
 
-            PdfImage pdfstream = new PdfImage(image, "", null);
-            pdfstream.put(new PdfName("ITXT_SpecialId"), new PdfName("123456789"));
-            PdfIndirectObject ref = stamper.getWriter().addToBody(pdfstream);
+                PdfImage pdfstream = new PdfImage(image, "", null);
+                pdfstream.put(new PdfName("ITXT_SpecialId"), new PdfName("123456789"));
+                PdfIndirectObject ref = stamper.getWriter().addToBody(pdfstream);
 
-            image.setDirectReference(ref.getIndirectReference());
+                image.setDirectReference(ref.getIndirectReference());
 
-            image.setAbsolutePosition(110, 80);
-            image.scaleToFit(180, 125);
-            PdfContentByte over = stamper.getOverContent(1);
-            over.addImage(image);
+                image.setAbsolutePosition(110, 40);
+                image.scaleToFit(250, 175);
+                PdfContentByte over = stamper.getOverContent(1);
+                over.addImage(image);
 
-
-            ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
-            bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
-            byte[] imagebyte2 = stream2.toByteArray();
-            Image image2 = Image.getInstance(imagebyte2);
+            }
 
 
-            PdfImage pdfstream2 = new PdfImage(image2, "", null);
-            pdfstream.put(new PdfName("ITXT_SpecialId"), new PdfName("123456789"));
-            PdfIndirectObject ref2 = stamper.getWriter().addToBody(pdfstream2);
+            if (bitmap2!=null) {
+                ByteArrayOutputStream stream2 = new ByteArrayOutputStream();
+                bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, stream2);
+                byte[] imagebyte2 = stream2.toByteArray();
+                Image image2 = Image.getInstance(imagebyte2);
 
-            image2.setDirectReference(ref2.getIndirectReference());
 
-            image2.setAbsolutePosition(320, 80);
-            image2.scaleToFit(180,125);
-            PdfContentByte over2 = stamper.getOverContent(1);
-            over2.addImage(image2);
+                PdfImage pdfstream2 = new PdfImage(image2, "", null);
+                pdfstream2.put(new PdfName("ITXT_SpecialId"), new PdfName("123456789"));
+                PdfIndirectObject ref2 = stamper.getWriter().addToBody(pdfstream2);
+
+                image2.setDirectReference(ref2.getIndirectReference());
+
+                image2.setAbsolutePosition(320, 40);
+                image2.scaleToFit(250, 175);
+                PdfContentByte over2 = stamper.getOverContent(1);
+                over2.addImage(image2);
+            }
 
 
 
@@ -346,10 +377,25 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
 
     public void checkfill() throws IOException, DocumentException {
-        if(title.getText().toString().trim().equals("")) {
-            title.setError("Please input report name");
-            title.requestFocus();
-            Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),"Please enter name for report",Toast.LENGTH_SHORT).show();
+        if(title.getText().toString().trim().equals("") ||date.getText().toString().trim().equals("")||time.getText().toString().trim().equals("") ) {
+            {
+                if(title.getText().toString().trim().equals(""))
+                {
+                    title.setError("Input Event's Name");
+                    title.requestFocus();
+                }
+                if(date.getText().toString().trim().equals(""))
+                {
+                    date.setError("Input Date");
+                    date.requestFocus();
+                }
+                if(time.getText().toString().trim().equals(""))
+                {
+                    time.setError("Input Time");
+                    time.requestFocus();
+                }
+            }
+            Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),"Please enter all highlighted fields",Toast.LENGTH_SHORT).show();
         }
         else
             writetopdf();
@@ -364,7 +410,7 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
         }
         else {
 
-            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/group_initiatives/" + title.getText().toString().trim() + ".pdf");
+            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/group_initiatives/" + title.getText().toString().trim() + "_"+ s + "_" + k + ".pdf");
             Uri path;
             path = FileProvider.getUriForFile(Objects.requireNonNull(getActivity()).getApplicationContext(), getActivity().getPackageName(), filelocation);
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -374,7 +420,23 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
             emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             emailIntent.putExtra(Intent.EXTRA_STREAM, path);
 // the mail subject
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Here is the Branch Visit Report - Human Resources");
+
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "Dear ,\n" +
+                    "\n" +
+                    "Please find attached the Group Initiative Report for the "+ title.getText().toString().trim() + " at "+ venue.getText().toString().trim() + " on " + date.getText().toString().trim() + "\n" +
+                    "\n" +
+                    "The report contains :\n" +
+                    "\n" +
+                    "1. Event Details & Minutes of Meeting\n" +
+                    "\n" +
+                    "2.  Some glimpses from the event\n" +
+                    "\n" +
+                    "Regards,\n" +
+                    "\n" +
+                    "....\n" +
+                    "\n" +
+                    "Human Resources");
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Here is the Group Initiatives Visit Report - Human Resources");
             startActivity(Intent.createChooser(emailIntent, "Send email..."));
 
         }
@@ -382,7 +444,7 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
 
 
-    public void anim(CircleButton button) {
+    public void anim(Button button) {
 
         final Animation myAnim = AnimationUtils.loadAnimation(Objects.requireNonNull(getActivity()).getApplicationContext(), R.anim.bounce);
         boumceinter inter = new boumceinter(0.2, 20);

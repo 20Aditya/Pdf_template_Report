@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -67,7 +68,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
     static EditText dob,branchcode,branchmanager,branchname,clusterhead,staffaction,sifaarishaction;
     static EditText staraction,lateaction,bhiaction,superaction;
     static EditText newaction,attritionaction,slfaction,mandaction,vbmsaction,trainingaction;
-    static EditText pacaction,roleaction, reportname,employeefeed,discipline,other;
+    static EditText pacaction,roleaction,employeefeed,discipline,other;
 
     static BetterSpinner vbmsaccount,trainingaccount,pacaccount,roleaccount,slfaccount;
     static BetterSpinner staffaccount,sifaarishaccount,staraccount,lateaccount,bhiaccount,superaccount,newaccount,attritionaccount,mandaccount;
@@ -76,7 +77,8 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
     ArrayList<BetterSpinner> accountablity = new ArrayList<BetterSpinner>();
 
     AcroFields acroFields;
-    CircleButton submit,email;
+    Button submit,email;
+    String d,s;
 
 
 
@@ -147,9 +149,11 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         });
 
 
-        submit = (CircleButton)view.findViewById(R.id.submit);
+        submit = (Button)view.findViewById(R.id.submit);
 
-        email = (CircleButton)view.findViewById(R.id.email);
+        email = (Button)view.findViewById(R.id.email);
+
+
         submit.setOnClickListener(this);
         email.setOnClickListener(this);
 
@@ -161,7 +165,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
     //------------------------------------------------------------------------------------------------------
 
-    public void anim(CircleButton button) {
+    public void anim(Button button) {
 
         final Animation myAnim = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.bounce);
         boumceinter inter = new boumceinter(0.2, 20);
@@ -221,7 +225,6 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         accountablity.add(roleaccount);
 
 
-        reportname = (EditText)view.findViewById(R.id.title);
 
         dob = (EditText)view.findViewById(R.id.date);
         branchcode = (EditText)view.findViewById(R.id.branch_code);
@@ -257,7 +260,19 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         }
 
 
-        File pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/branch_visit_reports/" + reportname.getText().toString().trim() + ".pdf");
+        d = dob.getText().toString().trim();
+        s = "";
+        for(int i=0;i<d.length();i++)
+        {
+            if(d.charAt(i)=='/')
+                continue;
+
+            s = s + d.charAt(i);
+        }
+
+
+
+        File pdf = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/branch_visit_reports/" + branchname.getText().toString().trim() + "_"+ branchcode.getText().toString().trim()+"_"+s + ".pdf");
         OutputStream output = null;
         try {
             output = new FileOutputStream(pdf);
@@ -362,7 +377,6 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         discipline.getText().clear();
         other.getText().clear();
 
-        reportname.getText().clear();
 
         flag=0;
 
@@ -430,10 +444,25 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
     public void checkfill()
     {
-        if(reportname.getText().toString().trim().equals("")) {
-            reportname.setError("Please input report name");
-            reportname.requestFocus();
-            Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),"Please enter name for report",Toast.LENGTH_SHORT).show();
+        if(branchname.getText().toString().trim().equals("") ||branchcode.getText().toString().trim().equals("")||dob.getText().toString().trim().equals("") ) {
+            {
+                if(branchname.getText().toString().trim().equals(""))
+                {
+                    branchname.setError("Input Branch Name");
+                    branchname.requestFocus();
+                }
+                if(branchcode.getText().toString().trim().equals(""))
+                {
+                    branchcode.setError("Input Branch Code");
+                    branchcode.requestFocus();
+                }
+                if(dob.getText().toString().trim().equals(""))
+                {
+                    dob.setError("Input Date");
+                    dob.requestFocus();
+                }
+            }
+            Toast.makeText(Objects.requireNonNull(getActivity()).getApplicationContext(),"Please enter all highlighted fields",Toast.LENGTH_SHORT).show();
         }
         else
             writetopdf();
@@ -448,7 +477,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         }
         else {
 
-            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/branch_visit_reports/" + reportname.getText().toString().trim() + ".pdf");
+            File filelocation = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/branch_visit_reports/" + branchname.getText().toString().trim() + "_"+ branchcode.getText().toString().trim()+"_"+s + ".pdf");
             Uri path;
             path = FileProvider.getUriForFile(Objects.requireNonNull(getActivity()).getApplicationContext(), getActivity().getPackageName(), filelocation);
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -457,6 +486,24 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
             emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             emailIntent.putExtra(Intent.EXTRA_STREAM, path);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "Dear ,\n" +
+                    "\n" +
+                    "Basis my visit to "+ branchname.getText().toString().trim() + " Branch on " + dob.getText().toString().trim() + ", please find attached the HR Branch Visit Report. \n" +
+                    "\n" +
+                    "The report contains two parts :\n" +
+                    "\n" +
+                    "1. Branch Performance against HR Parameters, action plan and accountability \n" +
+                    "\n" +
+                    "2.  Critical Observations \n" +
+                    "\n" +
+                    "This report will help you to understand and more effectively tackle the people challenges and to position the Branch for continued growth and achievement of the goals and objectives.\n" +
+                    "\n" +
+                    "Regards,\n" +
+                    "\n" +
+                    "....\n" +
+                    "\n" +
+                    "Human Resources");
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Here is the Branch Visit Report - Human Resources");
 // the mail subject
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Here is the Branch Visit Report - Human Resources");
             startActivity(Intent.createChooser(emailIntent, "Send email..."));

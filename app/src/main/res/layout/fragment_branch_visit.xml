@@ -7,6 +7,8 @@
     android:padding="15dp"
     android:id="@+id/branch_visit"
     android:background="#EEEEEE"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     >
 
     <LinearLayout
@@ -39,35 +41,13 @@
             >
 
             <LinearLayout
+                android:padding="2dp"
                 android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <android.support.design.widget.TextInputLayout
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/titleWrapper"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColorHint="#0288D1"
-                    android:theme="@style/textinput" >
 
-                    <EditText
-                        android:id="@+id/title"
-                        android:backgroundTint="#fff"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="15dp"
-                        android:gravity="clip_horizontal"
-                        android:hint="Name of Report"
-                        android:fitsSystemWindows="true"
-                        android:breakStrategy="balanced"
-                        android:singleLine="true"
-                        android:padding="5dp"
-                        android:textSize="15sp"/>
-
-                </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:textColorHint="#0288D1"
@@ -88,6 +68,7 @@
                         android:hint="Date of Visit"
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                         android:singleLine="true"
                         android:padding="5dp"
                         android:textSize="15sp"
@@ -116,6 +97,7 @@
                         android:backgroundTint="#fff"
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                         android:singleLine="true"
                         android:padding="5dp" />
                 </android.support.design.widget.TextInputLayout>
@@ -141,6 +123,7 @@
                         android:hint="Branch Name"
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                         android:singleLine="true"
                         android:padding="5dp" />
                 </android.support.design.widget.TextInputLayout>
@@ -165,6 +148,7 @@
                         android:hint="Branch Manager"
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                         android:singleLine="true"
                         android:padding="5dp" />
                 </android.support.design.widget.TextInputLayout>
@@ -190,6 +174,7 @@
                         android:backgroundTint="#fff"
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                         android:singleLine="true"
                         android:padding="5dp" />
                 </android.support.design.widget.TextInputLayout>
@@ -272,6 +257,7 @@
                                 android:textSize="15sp"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:padding="5dp" />
                         </android.support.design.widget.TextInputLayout>
@@ -334,6 +320,7 @@
                                 android:backgroundTint="#fff"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:padding="5dp" />
                         </android.support.design.widget.TextInputLayout>
@@ -395,6 +382,7 @@
                                 android:backgroundTint="#fff"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:padding="5dp" />
                         </android.support.design.widget.TextInputLayout>
@@ -450,6 +438,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:backgroundTint="#fff"
                                 android:singleLine="true"
                                 android:padding="5dp" />
@@ -506,6 +495,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:backgroundTint="#fff"
                                 android:singleLine="true"
                                 android:padding="5dp" />
@@ -563,6 +553,7 @@
                                 android:fitsSystemWindows="true"
                                 android:backgroundTint="#fff"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:padding="5dp" />
                         </android.support.design.widget.TextInputLayout>
@@ -619,6 +610,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:backgroundTint="#fff"
                                 android:singleLine="true"
                                 android:padding="5dp" />
@@ -674,6 +666,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:textSize="15sp"
                                 android:singleLine="true"
                                 android:backgroundTint="#fff"
@@ -728,6 +721,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:textSize="15sp"
                                 android:padding="5dp"
@@ -789,6 +783,7 @@
                                 android:backgroundTint="#fff"
                                 android:textSize="15sp"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:padding="5dp" />
                         </android.support.design.widget.TextInputLayout>
@@ -847,6 +842,7 @@
                                 android:fitsSystemWindows="true"
                                 android:textSize="15sp"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:padding="5dp"
                                 android:backgroundTint="#fff"/>
@@ -902,6 +898,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:textSize="15sp"
                                 android:backgroundTint="#fff"
@@ -959,6 +956,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:singleLine="true"
                                 android:textSize="15sp"
                                 android:padding="5dp"
@@ -1017,6 +1015,7 @@
                                 android:hint="Action Plan"
                                 android:fitsSystemWindows="true"
                                 android:breakStrategy="balanced"
+                        android:inputType="textMultiLine"
                                 android:backgroundTint="#fff"
                                 android:singleLine="true"
                                 android:textSize="15sp"
@@ -1068,6 +1067,8 @@
             app:cardCornerRadius="7dp"
             android:layout_marginBottom="8dp">
             <LinearLayout
+                android:padding="2dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -1181,14 +1182,17 @@
                 app:cardElevation="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_gravity="center_horizontal">
-                <at.markushi.ui.CircleButton
+                <Button
                     android:id="@+id/submit"
-                    android:layout_width="50dip"
-                    android:layout_height="50dip"
-                    android:src="@drawable/submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    app:cb_color="#fff"
-                    app:cb_pressedRingWidth="8dip"/>
+                    android:text="Generate PDF"
+                    android:background="#fff"
+                    android:textColor="#0097A7"
+                    android:padding="8dp"
+
+                    />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
                 android:layout_width="wrap_content"
@@ -1197,14 +1201,15 @@
                 app:cardElevation="10dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="20dp">
-                <at.markushi.ui.CircleButton
+                <Button
                     android:id="@+id/email"
-                    android:layout_width="50dip"
+                    android:layout_width="wrap_content"
                     android:layout_margin="8dp"
-                    android:layout_height="50dip"
-                    android:src="@drawable/gmail"
-                    app:cb_color="#fff"
-                    app:cb_pressedRingWidth="8dip"/>
+                    android:layout_height="wrap_content"
+                    android:text="Share"
+                    android:background="#fff"
+                    android:textColor="#0097A7"
+                    />
             </android.support.v7.widget.CardView>
 
 

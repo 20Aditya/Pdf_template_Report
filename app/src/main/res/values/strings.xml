@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pdf_Report</string>
+    <string name="app_name">NGAGE</string>
     <string name="title_activity_reports">ReportsActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
