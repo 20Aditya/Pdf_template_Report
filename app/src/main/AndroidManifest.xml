@@ -30,13 +30,11 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".ReportsActivity"
-            android:label="Reports"></activity>
+            android:label="NGAGE"></activity>
     </application>
 
 </manifest>

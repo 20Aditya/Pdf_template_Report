@@ -3,5 +3,5 @@
     <color name="colorPrimary">#1F618D</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="bgBottomNavigation">#1F618D</color>
+    <color name="bgBottomNavigation">#fff</color>
 </resources>

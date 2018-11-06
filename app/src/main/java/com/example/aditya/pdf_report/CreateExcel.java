@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -27,7 +28,7 @@ public class CreateExcel {
 
     static XSSFRow row = null;
     static XSSFCell cell = null;
-    static String[] headers = null;
+    static String[] headers = new String[] {"S.No", "Branch Visit Reports", "Group Initiatives"};
     static int rowNum = 0;
     static int colNum = 0;
     static CellStyle cellStyle = null;
@@ -40,7 +41,9 @@ public class CreateExcel {
         XSSFWorkbook workbook = new XSSFWorkbook();
 
         XSSFSheet sheet = workbook.createSheet("Reports Generated Data");
-        headers = new String[] {"S.No", "Branch Visit Reports", "Group Initiatives"};
+
+        rowNum=0;
+        colNum=0;
         row = sheet.createRow(rowNum);
         font = workbook.createFont();
         font.setBoldweight(XSSFFont.BOLDWEIGHT_BOLD);
@@ -63,6 +66,9 @@ public class CreateExcel {
         cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
         cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
 
+
+        File fc = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf_report/" + "Reports Data" + ".xlsx");
+        if(fc.exists())
 
         for (String header : headers) {
             cell = row.createCell(colNum);
@@ -133,13 +139,13 @@ public class CreateExcel {
 
         //Iterate over data and write to sheet
         Set<String> keyset = data.keySet();
-        int rownum = 1;
+        rowNum++;
         for (String key : keyset)
         {
-            Row row = sheet.createRow(rownum++);
+            row = sheet.createRow(rowNum++);
             Object [] objArr = data.get(key);
             int cellnum = 0;
-            for (Object obj : objArr)
+            for (Object obj : Objects.requireNonNull(objArr))
             {
                 Cell cell = row.createCell(cellnum++);
                 if(obj instanceof String)

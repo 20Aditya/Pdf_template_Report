@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+
     android:id="@+id/branch_visit"
     android:background="#EEEEEE"
     android:descendantFocusability="beforeDescendants"
@@ -14,10 +14,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="15dp">
         <android.support.v7.widget.CardView
+            app:cardBackgroundColor="#0097A7"
             android:layout_marginBottom="15dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="7dp"
             android:elevation="10dp"
@@ -27,8 +29,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HR Branch Visit Report"
-                android:textSize="15sp"
-                android:textColor="#0097A7"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
                 />
         </android.support.v7.widget.CardView>
 
@@ -50,7 +53,7 @@
 
 
                 <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"
                     android:id="@+id/descriptionlWrapper"
                     android:layout_width="match_parent"
@@ -59,7 +62,7 @@
 
                     <EditText
                         android:id="@+id/date"
-                        android:backgroundTint="#fff"
+                        android:backgroundTint="#E0E0E0"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -78,7 +81,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"
                     android:id="@+id/BranchCodewrapper"
                     android:layout_width="match_parent"
@@ -94,7 +97,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="clip_horizontal"
                         android:hint="Branch Code"
-                        android:backgroundTint="#fff"
+                        android:backgroundTint="#E0E0E0"
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
                         android:inputType="textMultiLine"
@@ -108,13 +111,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/branch_name"
                         android:textSize="15sp"
-                        android:backgroundTint="#fff"
+                        android:backgroundTint="#E0E0E0"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -133,13 +136,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                     <EditText
                         android:id="@+id/branch_manager"
                         android:textSize="15sp"
-                        android:backgroundTint="#fff"
+                        android:backgroundTint="#E0E0E0"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -156,10 +159,10 @@
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/ClusterHeadWrapper"
                     android:layout_width="match_parent"
-                    android:backgroundTint="#fff"
+                    android:backgroundTint="#E0E0E0"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                     <EditText
@@ -171,7 +174,7 @@
                         android:layout_marginTop="10dp"
                         android:gravity="clip_horizontal"
                         android:hint="Cluster Head"
-                        android:backgroundTint="#fff"
+                        android:backgroundTint="#E0E0E0"
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
                         android:inputType="textMultiLine"
@@ -182,23 +185,25 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_marginLeft="40dp"
+
             android:layout_marginTop="25dp"
             android:padding="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="7dp"
             android:elevation="10dp"
             android:layout_marginBottom="15dp"
+            app:cardBackgroundColor="#0097A7"
             >
             <TextView
                 android:padding="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+
                 android:text="Section A | Performance Measures"
-                android:textSize="15sp"
-                android:textColor="#0097A7"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
                 />
         </android.support.v7.widget.CardView>
 
@@ -227,6 +232,7 @@
 
 
                         <TextView
+                            android:textStyle="bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -241,7 +247,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"
                             android:backgroundTint="#fff">
 
@@ -270,7 +276,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"
                             />
 
@@ -297,6 +303,7 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Karo Sifarish"
+                            android:textStyle="bold"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
 
@@ -304,8 +311,8 @@
                         <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColorHint="#0288D1"
-                    android:theme="@style/textinput"
+                            android:textColorHint="#9E9E9E"
+                            android:theme="@style/textinput"
                             android:layout_marginTop="6dp">
 
 
@@ -332,7 +339,7 @@
                             android:backgroundTint="#fff"
                             android:hint="Accountability"
                             android:textSize="15sp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
 
 
@@ -359,6 +366,7 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Star Awards"
+                            android:textStyle="bold"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
 
@@ -367,7 +375,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                             <EditText
@@ -394,7 +402,7 @@
                             android:hint="Accountability"
                             android:backgroundTint="#fff"
                             android:textSize="15sp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -414,6 +422,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
+                            android:textStyle="bold"
                             android:text="Late Sitting"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
@@ -424,7 +433,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                             <EditText
@@ -451,7 +460,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -471,6 +480,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="Branch Hygiene &amp; Infra."
+                            android:textStyle="bold"
                             android:layout_marginLeft="10dp"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
@@ -481,7 +491,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                             <EditText
@@ -508,7 +518,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Accountability"
                             android:textSize="15sp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -528,6 +538,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="10dp"
                             android:text="Supervisory Feedback"
+                            android:textStyle="bold"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
 
@@ -537,7 +548,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
 
@@ -564,7 +575,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -586,6 +597,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
                             android:text="New Joinees Feedback"
+                            android:textStyle="bold"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
 
@@ -595,7 +607,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                             <EditText
@@ -622,7 +634,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -643,6 +655,7 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
                             android:text="Attrition"
+                            android:textStyle="bold"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
 
@@ -652,7 +665,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                             <EditText
@@ -679,7 +692,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -698,6 +711,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="Senior Leadership Feedback"
+                            android:textStyle="bold"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
 
@@ -706,7 +720,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
 
@@ -735,7 +749,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -755,6 +769,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="5dp"
+                            android:textStyle="bold"
                             android:text="Mandatory Leave"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
@@ -766,7 +781,7 @@
                             android:layout_marginRight="15dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
 
@@ -794,7 +809,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
 
                     </LinearLayout>
@@ -816,6 +831,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="5dp"
+                            android:textStyle="bold"
                             android:text="VBMS"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
@@ -826,7 +842,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
 
@@ -855,7 +871,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -876,6 +892,7 @@
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="5dp"
                             android:text="Training Coverage"
+                            android:textStyle="bold"
                             android:textColor="#0097A7"
                             android:textSize="15sp" />
 
@@ -884,7 +901,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                             <EditText
@@ -912,7 +929,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            /></LinearLayout>
                 </android.support.v7.widget.CardView>
 
@@ -932,6 +949,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="10dp"
                             android:text="Performance Approval Clarity"
+                            android:textStyle="bold"
                             android:textSize="13sp"
                             android:textColor="#0097A7"
                             />
@@ -942,7 +960,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                             <EditText
@@ -969,7 +987,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -989,6 +1007,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="Role Elevation"
+                            android:textStyle="bold"
                             android:textSize="15sp"
                             android:layout_marginLeft="60dp"
                             android:textColor="#0097A7"
@@ -1000,7 +1019,7 @@
                             android:layout_marginRight="15dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
 
@@ -1029,7 +1048,7 @@
                             android:hint="Accountability"
                             android:textSize="15sp"
                             android:backgroundTint="#fff"
-                            android:textColorHint="#0288D1"
+                            android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput"                            />
 
 
@@ -1042,22 +1061,24 @@
         </HorizontalScrollView>
 
         <android.support.v7.widget.CardView
-            android:layout_marginLeft="45dp"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="#0097A7"
+            android:layout_height="wrap_content"
             app:cardCornerRadius="7dp"
             android:elevation="10dp"
-            android:layout_marginBottom="15dp"
+            android:layout_gravity="center_horizontal"
             >
 
             <TextView
                 android:padding="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:text="Section B | Critical Observations"
-                android:textSize="15sp"
-                android:textColor="#0097A7"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
                 />
         </android.support.v7.widget.CardView>
 
@@ -1078,7 +1099,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                     <EditText
@@ -1096,7 +1117,7 @@
                         android:inputType="textMultiLine"
                         android:singleLine="false"
                         android:padding="5dp"
-                        android:backgroundTint="#fff"/>
+                        android:backgroundTint="#E0E0E0"/>
                 </android.support.design.widget.TextInputLayout>
 
 
@@ -1105,7 +1126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                     <EditText
@@ -1120,7 +1141,7 @@
                         android:fitsSystemWindows="true"
                         android:breakStrategy="balanced"
                         android:inputType="textMultiLine"
-                        android:backgroundTint="#fff"
+                        android:backgroundTint="#E0E0E0"
                         android:singleLine="false"
                         android:padding="5dp"
                         android:textSize="15sp"/>
@@ -1132,7 +1153,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColorHint="#0288D1"
+                    android:textColorHint="#9E9E9E"
                     android:theme="@style/textinput">
 
                     <EditText
@@ -1149,7 +1170,7 @@
                         android:breakStrategy="balanced"
                         android:inputType="textMultiLine"
                         android:singleLine="false"
-                        android:backgroundTint="#fff"
+                        android:backgroundTint="#E0E0E0"
                         android:padding="5dp" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -1188,8 +1209,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:text="Generate PDF"
-                    android:background="#fff"
-                    android:textColor="#0097A7"
+                    android:background="#0097A7"
+                    android:textColor="#fff"
                     android:padding="8dp"
 
                     />
@@ -1207,8 +1228,8 @@
                     android:layout_margin="8dp"
                     android:layout_height="wrap_content"
                     android:text="Share"
-                    android:background="#fff"
-                    android:textColor="#0097A7"
+                    android:background="#0097A7"
+                    android:textColor="#fff"
                     />
             </android.support.v7.widget.CardView>
 
