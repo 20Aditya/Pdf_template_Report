@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,9 +22,10 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ReportsActivity extends AppCompatActivity implements BranchVisitFragment.OnFragmentInteractionListener, OneOneFragment.OnFragmentInteractionListener, GroupFragment.OnFragmentInteractionListener {
+public class ReportsActivity extends AppCompatActivity implements BranchVisitFragment.OnFragmentInteractionListener, GroupFragment.OnFragmentInteractionListener {
 
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
+    private static int count = 0;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -107,6 +110,18 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
 
 
 
+    @Override
+    public void onBackPressed() {
+
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.frame_container);
+        if( f instanceof BranchVisitFragment)
+            finish();
+        if(f instanceof GroupFragment)
+        {
+            super.onBackPressed();
+
+        }
+    }
 
 
 
@@ -140,6 +155,12 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
                     BranchVisitFragment.refresh();
                 if(f instanceof GroupFragment)
                     GroupFragment.refresh();
+                break;
+
+            case R.id.excel:
+
+                Toast.makeText(this,"Creating the Excel Sheet...",Toast.LENGTH_LONG).show();
+                CreateExcel.createExcel();
                 break;
         }
 

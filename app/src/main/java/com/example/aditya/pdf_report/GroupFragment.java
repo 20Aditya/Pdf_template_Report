@@ -1,6 +1,7 @@
 package com.example.aditya.pdf_report;
 
 import android.app.DatePickerDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
@@ -24,6 +26,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.itextpdf.text.BadElementException;
@@ -74,6 +77,8 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
     static BetterSpinner event_category;
     String[] events = { "NJ Meet", "Coffee with Top Kats", "TP Meet",  "Open Forum", "Town Hall", "Mentoship Meet", "Focused Group Discussion" };
 
+
+    ScrollView scrollView;
     Bitmap bitmap,bitmap2;
     Calendar myCalendar = Calendar.getInstance();
     AcroFields acroFields;
@@ -122,6 +127,8 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
         view = inflater.inflate(R.layout.fragment_group, container, false);
 
+
+        scrollView = (ScrollView)view.findViewById(R.id.group);
         initialiseviews(view);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(Objects.requireNonNull(getActivity()).getApplicationContext(),android.R.layout.simple_dropdown_item_1line, events);
         event_category.setAdapter(adapter);
@@ -497,6 +504,7 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
             if(uri!=null)
                 Log.d("group", "onActivityResult: " + true);
 
+
             try {
                 // Log.d(TAG, String.valueOf(bitmap));
                 count++;
@@ -522,9 +530,14 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
+
         switch (v.getId())
         {
             case R.id.submit:
+
+                Snackbar snackbar = Snackbar
+                        .make(scrollView,"Creating...",Snackbar.LENGTH_SHORT);
+                snackbar.show();
                 try {
                     checkfill();
                 } catch (IOException e) {
@@ -569,6 +582,9 @@ public class GroupFragment extends Fragment implements View.OnClickListener {
 
         }
     }
+
+
+
 
     /**
      * This interface must be implemented by activities that contain this

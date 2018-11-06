@@ -13,4 +13,9 @@
         android:icon="@drawable/ref"
         app:showAsAction="always"/>
 
+    <item
+        android:id="@+id/excel"
+        android:title="Create Excel"
+        app:showAsAction="never"/>
+
 </menu>

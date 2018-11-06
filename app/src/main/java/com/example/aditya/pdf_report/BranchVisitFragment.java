@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -26,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,6 +81,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
     AcroFields acroFields;
     Button submit,email;
     String d,s;
+    ScrollView scrollView;
 
 
 
@@ -120,6 +123,7 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
 
         View view = inflater.inflate(R.layout.fragment_branch_visit, container, false);
 
+        scrollView = (ScrollView)view.findViewById(R.id.branch_visit);
 
 
 
@@ -523,6 +527,11 @@ public class BranchVisitFragment extends Fragment implements View.OnClickListene
         switch (v.getId())
         {
             case R.id.submit:
+
+                Snackbar snackbar = Snackbar
+                        .make(scrollView,"Creating...",Snackbar.LENGTH_SHORT);
+                snackbar.show();
+
                 checkfill();
                 anim(submit);
                 break;
