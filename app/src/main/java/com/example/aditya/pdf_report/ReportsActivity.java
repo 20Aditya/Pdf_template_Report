@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -21,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.io.File;
 
 public class ReportsActivity extends AppCompatActivity implements BranchVisitFragment.OnFragmentInteractionListener, GroupFragment.OnFragmentInteractionListener {
 
@@ -55,7 +59,6 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         requestPermission();
 
 
@@ -70,8 +73,7 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
 
     private void requestPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ) {
-            ActivityCompat
-                    .requestPermissions(ReportsActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_ASK_PERMISSIONS);
+            ActivityCompat.requestPermissions(ReportsActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_ASK_PERMISSIONS);
         }
     }
 
@@ -134,6 +136,8 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
 
 
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -162,6 +166,8 @@ public class ReportsActivity extends AppCompatActivity implements BranchVisitFra
                 Toast.makeText(this,"Creating the Excel Sheet...",Toast.LENGTH_LONG).show();
                 CreateExcel.createExcel();
                 break;
+
+
         }
 
         return true;
