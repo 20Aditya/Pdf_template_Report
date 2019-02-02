@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.buttonLogin:
-                if(!editTextpasscode.getText().toString().trim().equals("HRgold"))
+                if(!editTextpasscode.getText().toString().trim().equals(""))
                 {
                     editTextpasscode.setError("Enter correct Passcode");
                     editTextpasscode.requestFocus();
